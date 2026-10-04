@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Cardápio Ipanema MG</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fef6e9;padding-bottom:50px}
+.topo{background:linear-gradient(135deg,#d32f2f,#9a0007);color:#fff;text-align:center;padding:25px 15px}
+.topo h1{font-size:22px;margin-bottom:10px}
+.topo p{font-size:15px;margin:5px 0}
+.pagamento{background:#fff;margin:15px;padding:20px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.pagamento h2{text-align:center;color:#d32f2f;margin-bottom:15px;font-size:20px}
+.botoes{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:15px}
+.btn{padding:10px 18px;border-radius:8px;font-weight:bold;border:none}
+.pix{background:#e8f5e9;color:#2e7d32}
+.dinheiro{background:#fff8e1;color:#e65100}
+.debito{background:#e3f2fd;color:#1565c0}
+.credito{background:#f3e5f5;color:#7b1fa2}
+.chave-pix{background:#fef3c7;padding:12px;border-radius:8px;text-align:center;font-weight:bold;border:2px dashed #f59e0b}
+.categoria{margin:20px 15px}
+.categoria h2{background:#b71c1c;color:#ffd600;padding:12px 15px;border-radius:8px;font-size:18px;margin-bottom:12px;text-transform:uppercase;cursor:pointer}
+.lista{overflow:hidden;transition:max-height .4s ease}
+.item{background:#fff;padding:14px;margin-bottom:10px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.nome{font-weight:bold;font-size:16px;color:#422006;margin-bottom:4px}
+.desc{font-size:13px;color:#666;margin-bottom:6px;font-style:italic}
+.preco{font-weight:bold;font-size:17px;color:#2e7d32}
+.preco-duplo{display:flex;gap:15px;flex-wrap:wrap;margin-top:4px}
+.meia{color:#e65100;font-weight:bold}
+.inteira{color:#2e7d32;font-weight:bold}
+.aviso{text-align:center;padding:10px;color:#8b4513;font-size:14px;font-weight:bold}
+h3{margin:20px 0 10px;color:#8b4513;font-size:16px}
+</style>
+</head>
+<body>
+
+<div class="topo">
+<h1>📍 Ipanema - Minas Gerais</h1>
+<p>📱 WhatsApp: (33) 98890-6748</p>
+<p>⏰ Quarta a Segunda-feira</p>
+</div>
+
+<div class="pagamento">
+<h2>💳 Formas de Pagamento</h2>
+<div class="botoes">
+<span class="btn pix">🟢 PIX</span>
+<span class="btn dinheiro">💵 Dinheiro</span>
+<span class="btn debito">💳 Débito</span>
+<span class="btn credito">💳 Crédito</span>
+</div>
+<div class="chave-pix">🔑 Chave PIX: 16157530600</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('especial')">🌟 Lanche Especial 👇</h2>
+<div class="lista" id="especial">
+<div class="item"><div class="nome">CACHORRO QUENTE</div><div class="desc">Pão, salsicha, batata palha, presunto, queijo, milho e catupiry</div><div class="preco-duplo"><span>Simples: <span class="preco">R$ 13,00</span></span><span>Duplo: <span class="preco">R$ 15,00</span></span><span>Triplo: <span class="preco">R$ 18,00</span></span></div></div>
+<div class="item"><div class="nome">PÃO COM LINGUIÇA</div><div class="desc">Pão, linguiça de porco, queijo e vinagrete</div><div class="preco">R$ 13,00</div></div>
+<div class="item"><div class="nome">FILÉ DE BOI</div><div class="desc">Pão, filé de boi, queijo, salada e cebola + batata frita</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">LOMBO DE PORCO</div><div class="desc">Pão, lombo de porco, queijo, salada e milho + batata frita</div><div class="preco">R$ 26,00</div></div>
+<div class="item"><div class="nome">X CALABRESA E CHEDDAR</div><div class="desc">Pão, calabresa, cheddar, queijo, salada e cebola + batata frita</div><div class="preco">R$ 22,00</div></div>
+<div class="item"><div class="nome">FILÉ DE FRANGO EMPANADO</div><div class="desc">Pão, filé de frango empanado, catupiry, ovo e salada + batata frita</div><div class="preco">R$ 23,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('artesanal')">🍔 Hambúrgueres Artesanais 👇</h2>
+<div class="lista" id="artesanal">
+<p class="aviso">✅ Todos com batata frita</p>
+<div class="item"><div class="nome">CHEDDAR BURGUER</div><div class="desc">Pão brioche, carne 120g, cheddar, mussarela, tomate e alface</div><div class="preco">R$ 33,00</div></div>
+<div class="item"><div class="nome">DUPLO BACON BURGUER</div><div class="desc">Pão brioche, 2x carne 120g, cheddar, bacon, cebola caramelizada, mussarela, tomate e alface</div><div class="preco">R$ 37,00</div></div>
+<div class="item"><div class="nome">BANANA BURGUER</div><div class="desc">Pão brioche, carne 120g, banana, mussarela, bacon, tomate e alface</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">ABACAXI BURGUER</div><div class="desc">Pão brioche, carne 120g, abacaxi, cebola caramelizada, bacon, queijo, tomate e alface</div><div class="preco">R$ 35,00</div></div>
+<div class="item"><div class="nome">SALADA BURGUER</div><div class="desc">Pão brioche, carne 120g, picles, presunto, ovo, tomate e alface</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">SUGESTÃO DO CHEFF</div><div class="desc">Pão brioche, carne 120g, ovo, cheddar, bacon, presunto, cebola caramelizada e mussarela</div><div class="preco">R$ 37,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('caseiro')">🥩 Lanche Caseiro 👇</h2>
+<div class="lista" id="caseiro">
+<p class="aviso">✅ Com Cheddar ou Catupiry — você escolhe!</p>
+<div class="item"><div class="nome">HAMBÚRGUER BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, milho, batata e salada</div><div class="preco">R$ 21,50</div></div>
+<div class="item"><div class="nome">X BURGUER BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, queijo, milho, batata e salada</div><div class="preco">R$ 24,00</div></div>
+<div class="item"><div class="nome">X EGG BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, queijo, ovo, milho, batata e salada</div><div class="preco">R$ 26,50</div></div>
+<div class="item"><div class="nome">EGG BURGUER BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, ovo, milho, batata e salada</div><div class="preco">R$ 25,00</div></div>
+<div class="item"><div class="nome">X SALADA CASEIRO</div><div class="desc">Pão, bife caseiro, ovo, queijo, presunto, batata e salada</div><div class="preco">R$ 25,00</div></div>
+<div class="item"><div class="nome">BACON BURGUER BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, bacon, milho, batata e salada</div><div class="preco">R$ 26,00</div></div>
+<div class="item"><div class="nome">X BACON BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, bacon, queijo, milho, batata e salada</div><div class="preco">R$ 29,00</div></div>
+<div class="item"><div class="nome">X EGG BACON BIFE CASEIRO</div><div class="desc">Pão, bife caseiro, bacon, queijo, ovo, milho, batata e salada</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">X TUDO BIFE CASEIRO</div><div class="desc">Pão, 2x bife caseiro, bacon, queijo, ovo, presunto, milho, batata e salada</div><div class="preco">R$ 34,50</div></div>
+<div class="item"><div class="nome">FAUSTÃO ABERTO</div><div class="desc">Pão, 1 bife caseiro + 1 bife tradicional, bacon, 2 queijos, 2 ovos, 2 presuntos, milho, batata e salada</div><div class="preco">R$ 39,00</div></div>
+<div class="item"><div class="nome">CARNÃO</div><div class="desc">Pão, bife caseiro, bacon, calabresa, presunto, frango, queijo, milho, batata e salada</div><div class="preco">R$ 36,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('tradicional')">🥪 Lanche Tradicional 👇</h2>
+<div class="lista" id="tradicional">
+<div class="item"><div class="nome">HAMBÚRGUER TRADICIONAL</div><div class="desc">Pão, bife, milho, batata e salada</div><div class="preco">R$ 15,00</div></div>
+<div class="item"><div class="nome">X BURGUER TRADICIONAL</div><div class="desc">Pão, bife, queijo, milho, batata e salada</div><div class="preco">R$ 20,00</div></div>
+<div class="item"><div class="nome">X EGG TRADICIONAL</div><div class="desc">Pão, bife, queijo, ovo, milho, batata e salada</div><div class="preco">R$ 23,00</div></div>
+<div class="item"><div class="nome">EGG BURGUER TRADICIONAL</div><div class="desc">Pão, bife, ovo, milho, batata e salada</div><div class="preco">R$ 22,00</div></div>
+<div class="item"><div class="nome">X SALADA</div><div class="desc">Pão, bife, ovo, queijo, milho, batata e salada</div><div class="preco">R$ 22,00</div></div>
+<div class="item"><div class="nome">BACON BURGUER TRADICIONAL</div><div class="desc">Pão, bife, bacon, milho, batata e salada</div><div class="preco">R$ 23,00</div></div>
+<div class="item"><div class="nome">X BACON TRADICIONAL</div><div class="desc">Pão, bife, bacon, queijo, milho, batata e salada</div><div class="preco">R$ 25,00</div></div>
+<div class="item"><div class="nome">X EGG BACON TRADICIONAL</div><div class="desc">Pão, bife, bacon, queijo, ovo, milho, batata e salada</div><div class="preco">R$ 28,00</div></div>
+<div class="item"><div class="nome">X TUDO TRADICIONAL</div><div class="desc">Pão, 2x bife, bacon, queijo, 2 ovos, presunto, milho, batata e salada</div><div class="preco">R$ 30,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('frango')">🍗 Lanche com Frango 👇</h2>
+<div class="lista" id="frango">
+<div class="item"><div class="nome">FRANGO</div><div class="desc">Pão, filé de frango, queijo, milho, batata e salada</div><div class="preco">R$ 26,00</div></div>
+<div class="item"><div class="nome">X EGG FRANGO</div><div class="desc">Pão, filé de frango, ovo, queijo, milho, batata e salada</div><div class="preco">R$ 28,00</div></div>
+<div class="item"><div class="nome">EGG FRANGO</div><div class="desc">Pão, filé de frango, ovo, milho, batata e salada</div><div class="preco">R$ 28,00</div></div>
+<div class="item"><div class="nome">BACON FRANGO</div><div class="desc">Pão, filé de frango, bacon, ovo, milho, batata e salada</div><div class="preco">R$ 28,00</div></div>
+<div class="item"><div class="nome">X BACON FRANGO</div><div class="desc">Pão, filé de frango, bacon, queijo, milho, batata e salada</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">X EGG BACON FRANGO</div><div class="desc">Pão, filé de frango, bacon, queijo, ovo, milho, batata e salada</div><div class="preco">R$ 31,50</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('peixe')">🐟 Lanche com Peixe 👇</h2>
+<div class="lista" id="peixe">
+<div class="item"><div class="nome">X TILÁPIA</div><div class="desc">Pão, filé de tilápia grelhado, queijo e salada</div><div class="preco">R$ 27,00</div></div>
+<div class="item"><div class="nome">X EGG TILÁPIA</div><div class="desc">Pão, filé de tilápia grelhado, queijo, ovo e salada</div><div class="preco">R$ 28,00</div></div>
+<div class="item"><div class="nome">TILÁPIA SALADA</div><div class="desc">Pão, filé de tilápia grelhado, cebola, cenoura e salada</div><div class="preco">R$ 26,50</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('omelete')">🍳 Omelete 👇</h2>
+<div class="lista" id="omelete">
+<div class="item"><div class="nome">OMELETE BACON</div><div class="desc">4 ovos, bacon, queijo, catupiry, presunto, milho e batata</div><div class="preco">R$ 28,50</div></div>
+<div class="item"><div class="nome">OMELETE FRANGO</div><div class="desc">4 ovos, frango desfiado, queijo, catupiry, presunto, milho e batata</div><div class="preco">R$ 28,50</div></div>
+<div class="item"><div class="nome">OMELETE CALABRESA</div><div class="desc">4 ovos, calabresa, queijo, presunto, catupiry, milho e batata</div><div class="preco">R$ 28,50</div></div>
+<div class="item"><div class="nome">OMELETE CARNÃO</div><div class="desc">4 ovos, frango, bacon, calabresa, queijo, presunto, catupiry, milho e batata</div><div class="preco">R$ 35,50</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('macarrao')">🍝 Macarrão na Chapa 👇</h2>
+<div class="lista" id="macarrao">
+<div class="item"><div class="nome">MACARRÃO COM BACON</div><div class="desc">Macarrão, bacon, queijo, pimentão, cebola, tomate e milho</div><div class="preco">R$ 24,00</div></div>
+<div class="item"><div class="nome">MACARRÃO COM CALABRESA</div><div class="desc">Macarrão, calabresa, queijo, pimentão, cebola, cenoura, tomate e milho</div><div class="preco">R$ 24,00</div></div>
+<div class="item"><div class="nome">MACARRÃO COM FRANGO</div><div class="desc">Macarrão, frango desfiado, queijo, pimentão, cebola, cenoura, tomate e milho</div><div class="preco">R$ 24,00</div></div>
+<div class="item"><div class="nome">MACARRÃO MISTO</div><div class="desc">Macarrão, frango, bacon, calabresa, queijo, pimentão, cebola, tomate e milho</div><div class="preco">R$ 30,00</div></div>
+<div class="item"><div class="nome">MACARRÃO FILÉ</div><div class="desc">Macarrão, filé de boi, queijo, pimentão, cebola, cenoura e tomate</div><div class="preco">R$ 35,50</div></div>
+<div class="item"><div class="nome">MACARRÃO VEGETARIANO</div><div class="desc">Macarrão, queijo, pimentão, cebola, cenoura, tomate e milho</div><div class="preco">R$ 20,00</div></div>
+<div class="item"><div class="nome">MACARRÃO BOLONHESA</div><div class="desc">Macarrão, carne moída, molho, queijo, pimentão, cebola, cenoura e tomate</div><div class="preco">R$ 30,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('porcoes')">🍖 Porções 👇</h2>
+<div class="lista" id="porcoes">
+<p class="aviso">📏 Meia: 450g | Inteira: 800g</p>
+<div class="item"><div class="nome">PORÇÃO DE TORRESMO</div><div class="preco">R$ 20,00</div></div>
+<div class="item"><div class="nome">PORÇÃO DE MANDIOCA</div><div class="preco">R$ 20,00</div></div>
+<div class="item"><div class="nome">PICANHA COM BATATA FRITA</div><div class="preco-duplo"><span class="meia">Meia: R$ 108,90</span><span class="inteira">Inteira: R$ 118,00</span></div></div>
+<div class="item"><div class="nome">CONTRA FILÉ COM BATATA</div><div class="preco-duplo"><span class="meia">Meia: R$ 42,90</span><span class="inteira">Inteira: R$ 63,90</span></div></div>
+<div class="item"><div class="nome">FILÉ DE BOI</div><div class="desc">Filé de boi, cebola, pimentão e tomate</div><div class="preco-duplo"><span class="meia">Meia: R$ 42,50</span><span class="inteira">Inteira: R$ 83,00</span></div></div>
+<div class="item"><div class="nome">FILÉ MIGNON COM BATATA</div><div class="preco-duplo"><span class="meia">Meia: R$ 55,90</span><span class="inteira">Inteira: R$ 70,00</span></div></div>
+<div class="item"><div class="nome">PORÇÃO DE PORCO</div><div class="desc">Picanha de porco, cebola, pimentão e tomate</div><div class="preco-duplo"><span class="meia">Meia: R$ 32,90</span><span class="inteira">Inteira: R$ 52,90</span></div></div>
+<div class="item"><div class="nome">FILÉ DE PORCO COM BATATA</div><div class="preco-duplo"><span class="meia">Meia: R$ 32,90</span><span class="inteira">Inteira: R$ 45,90</span></div></div>
+<div class="item"><div class="nome">BATATA FRITA SIMPLES</div><div class="preco-duplo"><span class="meia">Meia: R$ 27,90</span><span class="inteira">Inteira: R$ 33,00</span></div></div>
+<div class="item"><div class="nome">ISCA DE TILÁPIA</div><div class="preco-duplo"><span class="meia">Meia: R$ 42,90</span><span class="inteira">Inteira: R$ 63,00</span></div></div>
+<div class="item"><div class="nome">TRIÂNGULO MINEIRO</div><div class="desc">Mandioca, torresmo e linguiça</div><div class="preco-duplo"><span class="meia">Meia: R$ 32,90</span><span class="inteira">Inteira: R$ 50,90</span></div></div>
+<div class="item"><div class="nome">BATATA COM CALABRESA E CATUPIRY</div><div class="preco-duplo"><span class="meia">Meia: R$ 29,90</span><span class="inteira">Inteira: R$ 41,50</span></div></div>
+<div class="item"><div class="nome">BATATA COM BACON E CHEDDAR</div><div class="preco-duplo"><span class="meia">Meia: R$ 32,90</span><span class="inteira">Inteira: R$ 42,50</span></div></div>
+<div class="item"><div class="nome">BATATA COM COSTELA DESFIADA E CREME DE QUEIJO</div><div class="preco-duplo"><span class="meia">Meia: R$ 39,90</span><span class="inteira">Inteira: R$ 49,90</span></div></div>
+<div class="item"><div class="nome">ISCA DE TILÁPIA COM BATATA</div><div class="preco-duplo"><span class="meia">Meia: R$ 47,90</span><span class="inteira">Inteira: R$ 66,00</span></div></div>
+<div class="item"><div class="nome">ISCA DE FRANGO EMPANADO</div><div class="preco-duplo"><span class="meia">Meia: R$ 32,90</span><span class="inteira">Inteira: R$ 59,90</span></div></div>
+<div class="item"><div class="nome">ISCA DE FRANGO COM BATATA</div><div class="preco-duplo"><span class="meia">Meia: R$ 35,00</span><span class="inteira">Inteira: R$ 52,90</span></div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('arroz')">🍚 Arroz na Chapa 👇</h2>
+<div class="lista" id="arroz">
+<div class="item"><div class="nome">ARROZ COM BACON</div><div class="desc">Arroz, bacon, pimentão, cebola, tomate, milho e cenoura</div><div class="preco">R$ 27,00</div></div>
+<div class="item"><div class="nome">ARROZ COM CALABRESA</div><div class="desc">Arroz, calabresa, pimentão, cebola, tomate, milho e cenoura</div><div class="preco">R$ 27,00</div></div>
+<div class="item"><div class="nome">ARROZ COM FRANGO</div><div class="desc">Arroz, frango desfiado, pimentão, cebola, tomate, milho e cenoura</div><div class="preco">R$ 27,00</div></div>
+</div>
+</div>
+
+<div class="categoria">
+<h2 onclick="toggle('bebidas')">🥤 Bebidas 👇</h2>
+<div class="lista" id="bebidas">
+<h3>Sucos</h3>
+<div class="item"><div class="nome">Suco Natural — Laranja / Limão / Maracujá (Jarra)</div><div class="preco">R$ 15,00</div></div>
+<div class="item"><div class="nome">Suco Lata — Pêssego / Uva</div><div class="preco">R$ 10,00</div></div>
+<h3>Água</h3>
+<div class="item"><div class="nome">Água com Gás</div><div class="preco">R$ 5,50</div></div>
+<div class="item"><div class="nome">Água sem Gás</div><div class="preco">R$ 3,00</div></div>
+<h3>Refrigerantes</h3>
+<div class="item"><div class="nome">Coca-Cola 600ml</div><div class="preco">R$ 10,00</div></div>
+<div class="item"><div class="nome">Coca-Cola 1L</div><div class="preco">R$ 11,00</div></div>
+<div class="item"><div class="nome">Coca-Cola 2L</div><div class="preco">R$ 15,00</div></div>
+<div class="item"><div class="nome">Coca-Cola Lata</div><div class="preco">R$ 6,00</div></div>
+<div class="item"><div class="nome">Guaraná 1L</div><div class="preco">R$ 11,00</div></div>
+<div class="item"><div class="nome">Guaraná 2L</div><div class="preco">R$ 15,00</div></div>
+<div class="item"><div class="nome">Guaraná Lata</div><div class="preco">R$ 6,00</div></div>
+<div class="item"><div class="nome">Refrigerante Lata — Laranja / Uva / Sprite</div><div class="preco">R$ 6,00</div></div>
+<h3>Cervejas Lata</h3>
+<div class="item"><div class="nome">Skol / Brahma</div><div class="preco">R$ 6,00</div></div>
+<div class="item"><div class="nome">Chopp de Vinho</div><div class="preco">R$ 10,00</div></div>
+<div class="item"><div class="nome">Monster</div><div class="preco">R$ 15,00</div></div>
+<h3>Cervejas Garrafa</h3>
+<div class="item"><div class="nome">Skol</div><div class="preco">R$ 10,00</div></div>
+<div class="item"><div class="nome">Brahma</div><div class="preco">R$ 10,00</div></div>
+<div class="item"><div class="nome">Heineken</div><div class="preco">R$ 15,00</div></div>
+</div>
+</div>
+
+<script>
+function toggle(id){const e=document.getElementById(id);e.style.maxHeight?e.style.maxHeight=null:e.style.maxHeight=e.scrollHeight+"px"}
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".lista").forEach(e=>e.style.maxHeight=e.scrollHeight+"px")});
+</script>
+
+</body>
+</html>
